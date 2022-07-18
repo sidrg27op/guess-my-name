@@ -22,27 +22,38 @@ document.querySelector('.check').addEventListener('click', function () {
       highscore = score;
       document.querySelector('.highscore').textContent = highscore;
     }
-  } else if (guess > secret) {
+  } else if (guess !== secret) {
     if (score > 1) {
-      display('☝ high');
+      display(guess > secret ? '☝ high' : '👇 low');
       score--;
       document.querySelector('.score').textContent = score;
-    } else {
-      display('🤣 u loose');
-      document.querySelector('.score').textContent = 0;
-    }
-  } else if (guess < secret) {
-    if (score > 1) {
-      display('👇 low');
-      score--;
-      console.log(score);
-      document.querySelector('.score').textContent = score;
-      console.log(score);
     } else {
       display('🤣 u loose');
       document.querySelector('.score').textContent = 0;
     }
   }
+
+  // } else if (guess > secret) {
+  //   if (score > 1) {
+  //     display('☝ high');
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     display('🤣 u loose');
+  //     document.querySelector('.score').textContent = 0;
+  //   }
+  // } else if (guess < secret) {
+  //   if (score > 1) {
+  //     display('👇 low');
+  //     score--;
+  //     console.log(score);
+  //     document.querySelector('.score').textContent = score;
+  //     console.log(score);
+  //   } else {
+  //     display('🤣 u loose');
+  //     document.querySelector('.score').textContent = 0;
+  //   }
+  // }
 });
 
 document.querySelector('.again').addEventListener('click', function () {
